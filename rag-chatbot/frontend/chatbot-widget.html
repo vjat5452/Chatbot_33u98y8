@@ -1,0 +1,97 @@
+<!-- Sparrowi Chatbot Widget -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/chatbot-static/chatbot-widget.css?v=13">
+
+<!-- Floating Action Button -->
+<div id="chatbotFab" class="chatbot-fab">
+    <div class="fab-avatar">
+        <img src="/chatbot-static/logo.png" alt="Sparrowi" width="48" height="48" style="object-fit:contain;">
+    </div>
+</div>
+
+<!-- Popup container -->
+<div id="chatbotPopup" class="chatbot-popup">
+    <button id="popupCloseBtn" class="popup-close-btn" title="Close">&times;</button>
+
+    <div class="app">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-left">
+                <div class="logo" id="logoBtn" style="cursor:pointer;" title="Back to home">
+                    <img src="/chatbot-static/logo.png" alt="Sparrowi" class="logo-img">
+                </div>
+                <span class="status-indicator" id="statusIndicator" title="Checking..."></span>
+            </div>
+        </header>
+
+        <!-- Messages area -->
+        <main class="messages" id="messages">
+            <div class="welcome-card">
+                <div class="welcome-icon">
+                    <svg viewBox="0 0 24 24" width="32" height="32" fill="currentColor">
+                        <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H5.17L4 17.17V4h16v12z"/>
+                        <path d="M12 10c.55 0 1-.45 1-1V7c0-.55-.45-1-1-1s-1 .45-1 1v2c0 .55.45 1 1 1zm0 2c-.55 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1z"/>
+                    </svg>
+                </div>
+                <h2>Welcome to Sparrow Interactive</h2>
+                <p id="welcomeTypingText"></p>
+                <div class="welcome-chips">
+                    <span class="chip" onclick="sendMessage('What services does Sparrow Interactive offer?')">Our Services</span>
+                    <span class="chip" onclick="sendMessage('Show me your projects and portfolio')">Projects & Portfolio</span>
+                    <span class="chip" onclick="sendMessage('Tell me about Sparrow Interactive')">Company Info</span>
+                    <span class="chip" onclick="sendMessage('How can I contact Sparrow Interactive?')">Get in Touch</span>
+                    <span class="chip chip-report" onclick="startReportIssue()">Report an Issue</span>
+                </div>
+                <div class="welcome-search">
+                    <div class="input-wrapper">
+                        <input type="text" id="welcomeInput" placeholder="Ask me anything about Sparrow Interactive...">
+                        <button id="welcomeMicBtn" class="mic-btn" title="Click to speak">
+                            <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                                <path d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3z"/>
+                                <path d="M17 11c0 2.76-2.24 5-5 5s-5-2.24-5-5H5c0 3.53 2.61 6.43 6 6.92V21h2v-3.08c3.39-.49 6-3.39 6-6.92h-2z"/>
+                            </svg>
+                        </button>
+                        <button id="welcomeSendBtn" title="Send">
+                            <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                                <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                <div class="suggested-questions">
+                    <p class="suggested-label">Popular questions</p>
+                    <div class="suggested-list" id="initialSuggestions">
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Input area (hidden initially, shown after first message) -->
+        <footer class="input-area" id="inputArea" style="display:none;">
+            <div class="input-wrapper">
+                <textarea
+                    id="userInput"
+                    placeholder="Ask me anything about Sparrow Interactive..."
+                    rows="1"
+                ></textarea>
+                <button id="micBtn" class="mic-btn" title="Click to speak">
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                        <path d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3z"/>
+                        <path d="M17 11c0 2.76-2.24 5-5 5s-5-2.24-5-5H5c0 3.53 2.61 6.43 6 6.92V21h2v-3.08c3.39-.49 6-3.39 6-6.92h-2z"/>
+                    </svg>
+                </button>
+                <button id="sendBtn" title="Send">
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                        <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
+                    </svg>
+                </button>
+            </div>
+            <div class="input-footer">Sparrowi can make mistakes. Verify important data.</div>
+        </footer>
+    </div>
+
+</div>
+
+<script src="/chatbot-static/app.js?v=9"></script>

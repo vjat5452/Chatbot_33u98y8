@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(curl:*)",
+      "Bash(/c/Users/User/AppData/Local/Programs/Python/Python312/python.exe:*)",
+      "WebSearch",
+      "Bash(python -c \"import json,sys; data=json.load\\(sys.stdin\\); [print\\(f''''{c[\"\"name\"\"]}: {c.get\\(\"\"points_count\"\",\"\"?\"\"\\)} points''''\\) for c in data.get\\(''''result'''',{}\\).get\\(''''collections'''',[]\\)]\")",
+      "Bash(pip show:*)",
+      "Bash(pip install:*)",
+      "Bash(\"venv/Scripts/python.exe\" test_final2.py)",
+      "Bash(\"venv/Scripts/python.exe\" -c \":*)",
+      "Bash(rm compare_chunks.py)",
+      "Bash(du -sh */ *.*)",
+      "Bash(ls -lhS *.py *.json *.html *.pdf *.log *.exe)"
+    ]
+  }
+}
